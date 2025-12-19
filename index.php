@@ -1,11 +1,14 @@
 <?php
 include 'db.php';
+
 $sql = "SELECT * FROM students";
 $stmt = $conn->query($sql);
+$students = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <h3>Student List</h3>
 <a href="add.php">Add New Student</a>
+
 <table border="1" cellpadding="10">
     <tr>
         <th>ID</th>
@@ -15,7 +18,7 @@ $stmt = $conn->query($sql);
         <th>Actions</th>
     </tr>
 
-    <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) { ?>
+    <?php foreach ($students as $row) { ?>
     <tr>
         <td><?= $row['id']; ?></td>
         <td><?= $row['name']; ?></td>
@@ -23,7 +26,8 @@ $stmt = $conn->query($sql);
         <td><?= $row['course']; ?></td>
         <td>
             <a href="edit.php?id=<?= $row['id']; ?>">Edit</a> |
-            <a href="delete.php?id=<?= $row['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+            <a href="delete.php?id=<?= $row['id']; ?>" 
+               onclick="return confirm('Are you sure?')">Delete</a>
         </td>
     </tr>
     <?php } ?>
