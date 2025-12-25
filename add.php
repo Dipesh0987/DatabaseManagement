@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'header.php';
 
 if (isset($_POST['submit'])) {
     $name = $_POST['name'];
@@ -21,3 +22,4 @@ if (isset($_POST['submit'])) {
     Course: <input type="text" name="course" required><br><br>
     <button name="submit">Add Student</button>
 </form>
+<?php include 'footer.php'; ?>

@@ -1,5 +1,6 @@
 <?php
 include 'db.php';
+include 'header.php';
 
 $sql = "SELECT * FROM students";
 $stmt = $conn->query($sql);
@@ -32,3 +33,4 @@ $students = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </tr>
     <?php } ?>
 </table>
+<?php include 'footer.php'; ?>

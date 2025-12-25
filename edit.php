@@ -1,6 +1,6 @@
 <?php
 include 'db.php';
-
+include 'header.php';
 $id = $_GET['id'];
 
 $sql = "SELECT * FROM students WHERE id = ?";
@@ -28,3 +28,4 @@ if (isset($_POST['update'])) {
     Course: <input type="text" name="course" value="<?= $student['course']; ?>"><br><br>
     <button name="update">Update</button>
 </form>
+<?php include 'footer.php'; ?>
